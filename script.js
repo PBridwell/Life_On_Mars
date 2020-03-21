@@ -6,6 +6,8 @@ $.ajax({
   url: queryURLWeather,
   method: "GET"
 }).then(function(response){
+
+  console.log(response);
   
   //get object of available sols 
   var sols = response.sol_keys;
