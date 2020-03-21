@@ -5,7 +5,7 @@ var queryURLWeather = "https://api.nasa.gov/insight_weather/?api_key=ZK4mjkTl6hv
 var queryURLImages = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2016-10-30&api_key=eEbMOIDyKxBlDGl2ggUdMiMKyzdqwqjDBxMYcLZK";
 
 // metric vs. imperial
-var system = 'imperial';
+var system = 'metric';
 
 // Make the AJAX request to the API - GETs the JSON data at the queryURL.
 $.ajax({
