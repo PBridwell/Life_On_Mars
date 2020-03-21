@@ -29,3 +29,9 @@ $.ajax({
    
 })
 
+
+$(document).ready(function(){
+  $('.datepicker').datepicker();
+});
+        
+
