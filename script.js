@@ -1,5 +1,6 @@
+$(document).ready(function(){
 // global variables
-var imageBtn = $('#imageBtn')
+var imageBtn = $('.imageBtn')
 
 // API URLS to nasa for Mars weather and images of Mars
 var queryURLWeather = "https://api.nasa.gov/insight_weather/?api_key=ZK4mjkTl6hvHYomrpaYgyuaAcecSsbTwNeaF3abB&feedtype=json&ver=1.0";
@@ -61,16 +62,17 @@ $.ajax({
 })
 }
 generatePhoto()
-$(imageBtn).on('click', test())
 
-function test(){
-  console.log('clicked');
-}
+
+
+
 
 // Initializes datepicker widget 
-$(document).ready(function(){
+
 $('.datepicker').datepicker();
 });
+
+
 
 // Event Listener for photo button 
 
