@@ -61,6 +61,12 @@ $.ajax({
   url: queryURLImages,
   method: "GET"
 }).then(function(response){
+
+  // clear current photos
+  $("#marsPhoto").text("");
+
+  // post 2 random photos from the day to the page
+  for (var i = 0; i < 2; i++){
     console.log(response);
     var photo = $("<img>");
     var imgArr = response.photos;
@@ -71,28 +77,23 @@ $.ajax({
     photo.attr('width', '250px')
     photo.attr('height', '250px')
     photo.attr("src",response.photos[imgIndex].img_src);
-    $("#marsPhoto").append(photo);
-    
-
-
-
-   
+    $("#marsPhoto").append(photo);   
+  }
 })}
 
 
 // Initializes datepicker widget 
 $('.datepicker').datepicker();
 
+// Event Listener for photo button
 $(".btn").on("click", function(){
     generatePhoto()
     
 });
-
-
 });
 
 
 
-// Event Listener for photo button 
+ 
 
 
