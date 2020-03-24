@@ -10,6 +10,8 @@ var queryURLImages = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/p
 var system = 'metric';
 
 $(document).ready(function(){
+
+  
 // Make the AJAX request to the API - GETs the JSON data at the queryURL.
 $.ajax({
   url: queryURLWeather,
@@ -61,17 +63,20 @@ $.ajax({
 
    
 })}
-generatePhoto()
+
 
 // Initializes datepicker widget 
 $('.datepicker').datepicker();
 
-
+$(".btn").on("click", function(){
+    generatePhoto()
+    
+});
 
 
 });
 
-var imageBtn = $('.imageBtn')
+
 
 // Event Listener for photo button 
 
