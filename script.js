@@ -7,6 +7,7 @@ var queryURLImages = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/p
 // metric vs. imperial
 var system = 'metric';
 
+
 // Make the AJAX request to the API - GETs the JSON data at the queryURL.
 $.ajax({
   url: queryURLWeather,
