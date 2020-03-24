@@ -6,13 +6,28 @@
 var queryURLWeather = "https://api.nasa.gov/insight_weather/?api_key=ZK4mjkTl6hvHYomrpaYgyuaAcecSsbTwNeaF3abB&feedtype=json&ver=1.0";
 var queryURLImages = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2016-10-30&api_key=eEbMOIDyKxBlDGl2ggUdMiMKyzdqwqjDBxMYcLZK";
 
-// metric vs. imperial
-var system = 'metric';
+// false = metric & true = imperial
+var system = false;
 
+// document ready function
 $(document).ready(function(){
 
-  
+// call mars weather api and post to screen
+getWeather();
+
+  // on change event for switcher - let the user decide on metric/imperial
+$("#switcher").on("change", function(){
+    if ($(this).is(":checked")){
+      system = $(this).is(":checked");
+    }
+    else{
+      system = $(this).is(':checked');
+    }
+    getWeather();
+})
+
 // Make the AJAX request to the API - GETs the JSON data at the queryURL.
+function getWeather(){
 $.ajax({
   url: queryURLWeather,
   method: "GET"
@@ -20,10 +35,12 @@ $.ajax({
 
   //get object of available sols 
   var sols = response.sol_keys;
+
+  // post season
   $("#season").text("It's currently " + response[sols["0"]].Season + " on Mars");
 
   // call 7 sols available DATE-SEASON-TEMP
-  if (system === "imperial"){
+  if (system === true){
     for (var i = 2; i < sols.length; i++){
       $("#date"+ i).text("Date: " + (response[sols[i]].Last_UTC).slice(6,10));
       $("#temp"+ i).text("Temp: " + (((response[sols[i]].AT.av)*9/5)+32).toFixed(1) + " F");
@@ -35,12 +52,10 @@ $.ajax({
       $("#temp"+ i).text("Temp: " + (response[sols[i]].AT.av).toFixed(1) + " C");
       $("#ws" + i).text("WS: " + (response[sols[i]].HWS.av).toFixed(1) + " m/s");
     }}
-})
-
+})}
 
 
 // Make the AJAX request to the API - GETs the JSON data at the queryURL.
-// The data then gets passed as an argument to the updatePage function
 function generatePhoto() {
 $.ajax({
   url: queryURLImages,
