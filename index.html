@@ -6,6 +6,9 @@
       <!--Import materialize.css-->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+      <!--Link CSS stylesheet-->
+      <link rel="stylesheet" href="style.css">
+
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
@@ -35,7 +38,7 @@
         <div class="container">
             <div class="row">
                 <div class="col s3">
-                    <p>Welcome to Life on Mars! This site will allow you to view the Martian weather as well as a picture from one of the Mars rovers from any date in the last week.  Be sure to save your favorite photos too!</p>
+                    <p>Welcome to Life on Mars! This site will allow you to view the Martian weather from a span of five days. This data is periodically updated. The date selector below allows you to retrieve photos taken by one of the Mars rovers on that date.  </p>
                     
                 </div>
                 
@@ -43,45 +46,52 @@
                 <div class="col s9">
                     <h5 class="center-align">5 Day Weather Lookback</h5>
                     <h6 class="center-align" id="season"></h6>
+                    <!-- Switch -->
+                    <div class="switch right-align">
+                      <label>
+                        Celsius
+                        <input type="checkbox">
+                        <span class="lever"></span>
+                        Fahrenheit
+                      </label>
+                    </div>
                     <div class="row">
-                      <div class="col s1"></div>
-                      <div class="col s2">
-                        <p id="date2"></p>
-                        <p id="temp2"></p>
-                        <p id="ws2"></p>
-                      </div>
-                      <div class="col s2">
-                        <p id="date3"></p>
-                        <p id="temp3"></p>
-                        <p id="ws3"></p>
-                      </div>
-                      <div class="col s2">
-                        <p id="date4"></p>
-                        <p id="temp4"></p>
-                        <p id="ws4"></p>
-                      </div>
-                      <div class="col s2">
-                        <p id="date5"></p>
-                        <p id="temp5"></p>
-                        <p id="ws5"></p>
-                      </div>
-                      <div class="col s2">
-                        <p id="date6"></p>
-                        <p id="temp6"></p>
-                        <p id="ws6"></p>
-                      </div>
-                      <div class="col s1 switch">
-                        <label>
-                          Celsius
-                          <input type="checkbox">
-                          <span class="lever"></span>
-                          Farenheit
-                        </label>
-                      </div>
+                      <table class="responsive-table centered striped teal darken-4 white-text">
+                        <thead>
+                          <tr>
+                            <th id="date2">Day 1</th>
+                            <th id="date3">Day 2</th>
+                            <th id="date4">Day 3</th>
+                            <th id="date5">Day 4</th>
+                            <th id="date6">Day 5</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr>
+                            <td id="temp2"></td>
+                            <td id="temp3"></td>
+                            <td id="temp4"></td>
+                            <td id="temp5"></td>
+                            <td id="temp6"></td>
+                          </tr>
+                          <tr>
+                            <td id="ws2">
+                            </td>
+                            <td id="ws3"></td>
+                            <td id="ws4"></td>
+                            <td id="ws5"></td>
+                            <td id="ws6"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    
+                      
                     </div>
                 </div>
             </div>
             <div class="row">
+              <!--Date Picker area-->
                 <div class="col s3 m3">
                   <div class="card">
                     <input type="text" class="datepicker">
@@ -92,13 +102,17 @@
                     <div class="card-content">
                       <p>Select a date in the box above.</p>
                     </div>
-                    <div class="card-action">
-                      <a href="#">This is a link</a>
-                    </div>
+
                   </div>
                 </div>
-                <div class="col s9" id="marsPhoto">
-                  
+                <!--Photo area-->
+                <div class="col s9 center-align" id="marsPhoto">
+                </div>
+              </div>
+              <!--Button area-->
+              <div class="row">
+                <div class="col s3 offset-s6">
+                  <div class="waves-effect btn red imageBtn" >Get Photos</div>
                 </div>
               </div>
 

@@ -1,4 +1,6 @@
+
 // global variables
+
 
 // API URLS to nasa for Mars weather and images of Mars
 var queryURLWeather = "https://api.nasa.gov/insight_weather/?api_key=ZK4mjkTl6hvHYomrpaYgyuaAcecSsbTwNeaF3abB&feedtype=json&ver=1.0";
@@ -7,7 +9,7 @@ var queryURLImages = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/p
 // metric vs. imperial
 var system = 'metric';
 
-
+$(document).ready(function(){
 // Make the AJAX request to the API - GETs the JSON data at the queryURL.
 $.ajax({
   url: queryURLWeather,
@@ -37,25 +39,40 @@ $.ajax({
 
 // Make the AJAX request to the API - GETs the JSON data at the queryURL.
 // The data then gets passed as an argument to the updatePage function
+function generatePhoto() {
 $.ajax({
   url: queryURLImages,
   method: "GET"
 }).then(function(response){
     console.log(response);
     var photo = $("<img>");
+    var imgArr = response.photos;
+    var n = imgArr.length;
+    console.log(n);
+    var imgIndex = Math.floor(Math.random() * n);
+    console.log(imgIndex)
     photo.attr('width', '250px')
     photo.attr('height', '250px')
-    photo.attr("src",response.photos[3].img_src);
+    photo.attr("src",response.photos[imgIndex].img_src);
     $("#marsPhoto").append(photo);
+    
 
 
 
    
-})
+})}
+generatePhoto()
+
+// Initializes datepicker widget 
+$('.datepicker').datepicker();
 
 
-$(document).ready(function(){
-  $('.datepicker').datepicker();
+
+
 });
-        
+
+var imageBtn = $('.imageBtn')
+
+// Event Listener for photo button 
+
 
