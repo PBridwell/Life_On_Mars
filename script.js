@@ -1,10 +1,11 @@
 
 // global variables
+var userDate = '';
 
 
 // API URLS to nasa for Mars weather and images of Mars
 var queryURLWeather = "https://api.nasa.gov/insight_weather/?api_key=ZK4mjkTl6hvHYomrpaYgyuaAcecSsbTwNeaF3abB&feedtype=json&ver=1.0";
-var queryURLImages = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2016-10-30&api_key=eEbMOIDyKxBlDGl2ggUdMiMKyzdqwqjDBxMYcLZK";
+// var queryURLImages = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2016-10-30&api_key=eEbMOIDyKxBlDGl2ggUdMiMKyzdqwqjDBxMYcLZK";
 
 // false = metric & true = imperial
 var system = false;
@@ -14,6 +15,7 @@ $(document).ready(function(){
 
 // call mars weather api and post to screen
 getWeather();
+generatePhoto(recentDate);
 
   // on change event for switcher - let the user decide on metric/imperial
 $("#switcher").on("change", function(){
@@ -25,6 +27,19 @@ $("#switcher").on("change", function(){
     }
     getWeather();
 })
+
+$("#userDate").on("change", function(){
+  // generatePhoto('2016-10-30')
+  userDate = ($(this)[0].value);
+  generatePhoto(userDate);
+})
+
+
+// Event Listener for photo button
+$(".btn").on("click", function(){
+  generatePhoto(userDate);
+  
+});
 
 // Make the AJAX request to the API - GETs the JSON data at the queryURL.
 function getWeather(){
@@ -56,7 +71,11 @@ $.ajax({
 
 
 // Make the AJAX request to the API - GETs the JSON data at the queryURL.
-function generatePhoto() {
+function generatePhoto(a) {
+
+  var queryURLImages = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + a + "&api_key=eEbMOIDyKxBlDGl2ggUdMiMKyzdqwqjDBxMYcLZK";
+
+
 $.ajax({
   url: queryURLImages,
   method: "GET"
@@ -64,6 +83,8 @@ $.ajax({
 
   // clear current photos
   $("#marsPhoto").text("");
+
+  lastDate = (response.photos[0].rover.max_date);
 
   // post 2 random photos from the day to the page
   for (var i = 0; i < 2; i++){
@@ -82,14 +103,22 @@ $.ajax({
 })}
 
 
-// Initializes datepicker widget 
-$('.datepicker').datepicker();
 
-// Event Listener for photo button
-$(".btn").on("click", function(){
-    generatePhoto()
-    
+
+var lastDate = '';
+
+// Initializes datepicker widget 
+$('.datepicker').datepicker({
+  format: "yyyy-mm-dd",
+  
+  minDate: new Date('2019-09-01'),
+  maxDate: new Date(lastDate),
 });
+
+
+
+
+
 });
 
 
