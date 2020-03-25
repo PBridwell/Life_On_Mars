@@ -87,6 +87,7 @@ $.ajax({
 // Initializes datepicker widget 
 $('.datepicker').datepicker({
   format: "yyyy-mm-dd",
+  defaultDate: new Date('2019-09-28'),
   minDate: new Date('2012-08-07'),
   maxDate: new Date('2019-09-28'),
 });
