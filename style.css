@@ -11,3 +11,7 @@
 .brand-logo {
     margin-left: 20px;
 }
+
+.invisible{
+    visibility: hidden;
+}
