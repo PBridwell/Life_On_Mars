@@ -72,16 +72,24 @@ $(document).ready(function(){
 // call mars weather function
 getWeather();
 
-// Initializes datepicker widget and sets parameters 
+// original ajax to get max date available from mars image api
+$.ajax({
+  url: "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2016-01-01&api_key=eEbMOIDyKxBlDGl2ggUdMiMKyzdqwqjDBxMYcLZK",
+  method: "GET"
+}).then(function(response){
+
+  var stopAt = (response.photos[0].rover.max_date);
+  $("#dateLimits").text("Click in the white box above to select a date. Date must be between 2012-08-07 and " + stopAt);
+
+  // Initializes datepicker widget and sets parameters 
 $(".datepicker").datepicker({
   format: "yyyy-mm-dd",
   defaultDate: new Date("2019-09-28"),
   minDate: new Date("2012-08-07"),
-  maxDate: new Date("2019-09-28"),
-});
+  maxDate: new Date(stopAt),
+});});
 
-
-// EVENT LISTENERS:
+// EVENT LISTENERS FOR BUTTONS AND SWITCHS:
   // on change event for switcher - let the user decide on metric/imperial
 $("#switcher").on("change", function(){
     if ($(this).is(":checked")){
