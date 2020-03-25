@@ -1,7 +1,7 @@
 #marsPhoto img {
     margin: 15px;
     padding: 2px;
-    border: 1px solid green;
+    border: 1px solid darkred;
 }
 
 .switch{
@@ -10,4 +10,10 @@
 
 .brand-logo {
     margin-left: 20px;
+}
+
+.Mars {
+    font-style: italic;
+    font-weight: bold;
+    font-size: larger;
 }
