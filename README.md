@@ -1,5 +1,5 @@
 # Life_On_Mars
-This site allows you to see the weather conditions and images of Mars on a given date
+This site allows you to see a sample of weather conditions on Mars and select images of Mars by date
 
 [Click here to live link](https://mwturner611.github.io/Life_On_Mars/)
 
@@ -9,7 +9,7 @@ This site allows you to see the weather conditions and images of Mars on a given
 * mwturner611
 
 # Technology
-JQuery, JavaScript, HTML, CSS, AJAX, local storage
+JQuery, JavaScript, HTML, CSS, AJAX
 
 # About
 This site allows you to experience a day in the life on Mars. 
@@ -18,8 +18,10 @@ This site allows you to experience a day in the life on Mars.
 This project is licensed under The MIT License (MIT).
 
 # How to use this code
-1. Search for the date you want to experience Mars.
-2. Upon selecting the date review weather and photos of Mars from Nasa Mars Rover.
+1. On open see the most recent weather on Mars available from Nasa's API
+2. Toggle between Celsius and Fahrenheit
+3. Use the date selector on the left hand side to pick which date you would like to see photos from
+4. Cycle through more photos on same date or choose a different date to view
 
 
 # Contributing Guidelines
