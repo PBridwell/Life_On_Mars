@@ -105,6 +105,7 @@ $("#switcher").on("change", function(){
 $("#userDate").on("change", function(){
   userDate = ($(this)[0].value);
   generatePhoto(userDate);
+  $(".btn").removeClass("invisible"); 
 })
 
 // Event Listener for more photos button
@@ -113,7 +114,6 @@ $(".btn").on("click", function(){
 });
 
 });
-
 
 
  
