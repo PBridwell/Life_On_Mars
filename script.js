@@ -3,8 +3,9 @@
 
 
 // API URLS to nasa for Mars weather and images of Mars
+var userDate = "2016-02-14";
 var queryURLWeather = "https://api.nasa.gov/insight_weather/?api_key=ZK4mjkTl6hvHYomrpaYgyuaAcecSsbTwNeaF3abB&feedtype=json&ver=1.0";
-var queryURLImages = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2016-10-30&api_key=eEbMOIDyKxBlDGl2ggUdMiMKyzdqwqjDBxMYcLZK";
+var queryURLImages = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + userDate + "&api_key=eEbMOIDyKxBlDGl2ggUdMiMKyzdqwqjDBxMYcLZK";
 
 // false = metric & true = imperial
 var system = false;
@@ -83,7 +84,9 @@ $.ajax({
 
 
 // Initializes datepicker widget 
-$('.datepicker').datepicker();
+$('.datepicker').datepicker({
+  format: "yyyy-mm-dd"
+});
 
 // Event Listener for photo button
 $(".btn").on("click", function(){
