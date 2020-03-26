@@ -9,7 +9,7 @@ This site allows you to see a sample of weather conditions on Mars and select im
 * mwturner611
 
 # Technology
-JQuery, JavaScript, HTML, CSS, AJAX
+JQuery, JavaScript, Materialize, HTML, CSS, AJAX
 
 # About
 This site allows you to experience a day in the life on Mars. 
@@ -37,4 +37,8 @@ All contributions and suggestions are welcome! For direct contributions, please 
 * Name: Matt Turner (@mwturner611)
 * e-mail: mwturner611@gmail.com
 * LinkedIn: https://www.linkedin.com/in/matt-turner-ba328211a/*
+
+# Thank you's
+* Chris Cerami for maintaining the Mars Rover Photos API [repository here](https://github.com/chrisccerami/mars-photo-api)
+* Nasa's Jet Propoulsion Laboratory for maintaing the [InSight: Mars Weather Service API](https://api.nasa.gov/)
 

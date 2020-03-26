@@ -64,8 +64,6 @@ $.ajax({
 })}
 
 
-// lastDate = (response.photos[0].rover.max_date);
-
 // Main program logic
 $(document).ready(function(){
 
