@@ -1,135 +1,161 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<html>
+	<head>
+		<!--Import Google Icon Font-->
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		<!--Import materialize.css-->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+		/>
 
-      <!--Link CSS stylesheet-->
-      <link rel="stylesheet" href="style.css">
+		<!--Link CSS stylesheet-->
+		<link rel="stylesheet" href="style.css" />
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
 
-    <body>
-        <!--Navbar start-->
-        <div class="container-fluid">
-            <nav>
-                <div class="nav-wrapper red darken-4">
-                  <a href="#!" class="brand-logo">Life on <span class="Mars">Mars</span></a>
-                  <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                  <ul class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Saved Images</a></li>
-                    <li><a href="badges.html">Weather Reports</a></li>
-                    <li><a href="collapsible.html">Contact</a></li>
-                  </ul>
-                </div>
-              </nav>
-            
-              <ul class="sidenav" id="mobile-demo">
-                <li><a href="sass.html"><i class="material-icons">camera_roll</i>Saved Images</a></li>
-                <li><a href="badges.html"><i class="material-icons">cloud</i>Weather Reports</a></li>
-                <li><a href="collapsible.html"><i class="material-icons">chat_bubble</i>Contact</a></li>
-              </ul>
-        </div> <!--Navbar end-->
-    
-        <div class="container">
-            <div class="row">
-                <div class="col s3 box">
-                    <p>Welcome to Life on Mars! This site will allow you to view the Martian weather from a span of five days. This data is periodically updated. The date selector below allows you to retrieve photos taken by one of the Mars rovers on that date.  </p>
-                    
-                </div>
-                
-                <!-- Weather display area -->
-                <div class="col s9">
-                    <h5 class="center-align">5 Day Weather Lookback</h5>
-                    <h6 class="center-align" id="season"></h6>
-                    <!-- Switch -->
-                    <div class="switch right-align">
-                      <label>
-                        Celsius
-                        <input type="checkbox" id="switcher">
-                        <span class="lever"></span>
-                        Fahrenheit
-                      </label>
-                    </div>
-                    <div class="row">
-                      <table class="responsive-table centered striped red darken-4 white-text">
-                        <thead>
-                          <tr>
-                            <th id="date2">Day 1</th>
-                            <th id="date3">Day 2</th>
-                            <th id="date4">Day 3</th>
-                            <th id="date5">Day 4</th>
-                            <th id="date6">Day 5</th>
-                          </tr>
-                        </thead>
+	<body>
+		<!--Navbar start-->
+		<div class="container-fluid">
+			<nav>
+				<div class="nav-wrapper red darken-4">
+					<a href="#!" class="brand-logo"
+						>Life on <span class="Mars">Mars</span></a
+					>
+					<a href="#" data-target="mobile-demo" class="sidenav-trigger"
+						><i class="material-icons">menu</i></a
+					>
+					<ul class="right hide-on-med-and-down">
+						<li><a href="badges.html">Weather Reports</a></li>
+						<li><a href="collapsible.html">Contact</a></li>
+					</ul>
+				</div>
+			</nav>
 
-                        <tbody>
-                          <tr>
-                            <td id="temp2"></td>
-                            <td id="temp3"></td>
-                            <td id="temp4"></td>
-                            <td id="temp5"></td>
-                            <td id="temp6"></td>
-                          </tr>
-                          <tr>
-                            <td id="ws2">
-                            </td>
-                            <td id="ws3"></td>
-                            <td id="ws4"></td>
-                            <td id="ws5"></td>
-                            <td id="ws6"></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    
-                      
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-              <!--Date Picker area-->
-                <div class="col s3 m3">
-                  <div class="card">
-                    <input type="text" class="datepicker center-align"" id="userDate" placeholder="2019-09-28">
-                    <div class="card-image">
-                      <img src="https://www.cloudynights.com/uploads/monthly_04_2016/post-242484-0-08874700-1460828158.jpg">
-                      <span class="card-title">Select Date</span>
-                    </div>
-                    <div class="card-content">
-                      <p id="dateLimits"></p>
-                    </div>
+			<ul class="sidenav" id="mobile-demo">
+				<li>
+					<a href="sass.html"
+						><i class="material-icons">camera_roll</i>Saved Images</a
+					>
+				</li>
+				<li>
+					<a href="badges.html"
+						><i class="material-icons">cloud</i>Weather Reports</a
+					>
+				</li>
+				<li>
+					<a href="collapsible.html"
+						><i class="material-icons">chat_bubble</i>Contact</a
+					>
+				</li>
+			</ul>
+		</div>
+		<!--Navbar end-->
 
-                  </div>
-                </div>
-                <!--Photo area-->
-                <div class="col s9 center-align" id="marsPhoto">
-                </div>
-              </div>
-              <!--Button area-->
-              <div class="row">
-                <div class="col s3 offset-s6">
-                  <div class="waves-effect btn red imageBtn invisible" >More Photos</div>
-                </div>
-              </div>
+		<div class="container">
+			<div class="row">
+				<div class="col s3 box">
+					<p>
+						Welcome to Life on Mars! This site will allow you to view the
+						Martian weather from a span of five days. This data is periodically
+						updated. The date selector below allows you to retrieve photos taken
+						by one of the Mars rovers on that date.
+					</p>
+				</div>
 
-        </div>
-    
-  
-        <!--Compiled and minifed jQuery -->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <!--JavaScript at end of body for optimized loading-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-     <!-- Mobile sidenav functionality-->
-     <script type="text/javascript" src="script.js"></script>
-     <script>
-          $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
-      </script>
+				<!-- Weather display area -->
+				<div class="col s9">
+					<h5 class="center-align">5 Day Weather Lookback</h5>
+					<h6 class="center-align" id="season"></h6>
+					<!-- Switch -->
+					<div class="switch right-align">
+						<label>
+							Celsius
+							<input type="checkbox" id="switcher" />
+							<span class="lever"></span>
+							Fahrenheit
+						</label>
+					</div>
+					<div class="row">
+						<table
+							class="responsive-table centered striped red darken-4 white-text"
+						>
+							<thead>
+								<tr>
+									<th id="date2">Day 1</th>
+									<th id="date3">Day 2</th>
+									<th id="date4">Day 3</th>
+									<th id="date5">Day 4</th>
+									<th id="date6">Day 5</th>
+								</tr>
+							</thead>
 
-    </body>
-  </html>
+							<tbody>
+								<tr>
+									<td id="temp2"></td>
+									<td id="temp3"></td>
+									<td id="temp4"></td>
+									<td id="temp5"></td>
+									<td id="temp6"></td>
+								</tr>
+								<tr>
+									<td id="ws2"></td>
+									<td id="ws3"></td>
+									<td id="ws4"></td>
+									<td id="ws5"></td>
+									<td id="ws6"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<!--Date Picker area-->
+				<div class="col s3 m3">
+					<div class="card">
+						<input type="text" class="datepicker center-align"" id="userDate"
+						placeholder="2019-09-28">
+						<div class="card-image">
+							<img
+								src="https://www.cloudynights.com/uploads/monthly_04_2016/post-242484-0-08874700-1460828158.jpg"
+							/>
+							<span class="card-title">Select Date</span>
+						</div>
+						<div class="card-content">
+							<p id="dateLimits"></p>
+						</div>
+					</div>
+				</div>
+				<!--Photo area-->
+				<div class="col s9 center-align" id="marsPhoto"></div>
+			</div>
+			<!--Button area-->
+			<div class="row">
+				<div class="col s3 offset-s6">
+					<div class="waves-effect btn red imageBtn invisible">More Photos</div>
+				</div>
+			</div>
+		</div>
+
+		<!--Compiled and minifed jQuery -->
+		<script
+			type="text/javascript"
+			src="https://code.jquery.com/jquery-3.2.1.min.js"
+		></script>
+		<!--JavaScript at end of body for optimized loading-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<!-- Mobile sidenav functionality-->
+		<script type="text/javascript" src="script.js"></script>
+		<script>
+			$(document).ready(function () {
+				$(".sidenav").sidenav();
+			});
+		</script>
+	</body>
+</html>
